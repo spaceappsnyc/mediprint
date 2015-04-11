@@ -5,8 +5,35 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.view1',
   'myApp.view2',
+  'myApp.astronauts',
+  'myApp.bodyparts',
+  'myApp.conditions',
+  'myApp.device',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.
+
+      when('/astronauts', {
+        templateUrl: 'astronauts/astronauts.html',
+        controller: 'AstronautsCtrl'
+      }).
+      when('/bodyparts', {
+        templateUrl: 'bodyparts/bodyparts.html',
+        controller: 'BodypartsCtrl'
+      }).
+      when('/conditions', {
+        templateUrl: 'conditions/conditions.html',
+        controller: 'ConditionsCtrl'
+      }).
+
+
+      when('/device/:deviceId', {
+        templateUrl: 'device/device.html',
+        controller: 'DeviceCtrl'
+      }).
+
+      otherwise({
+        redirectTo: '/astronauts'
+      });
 }]);
