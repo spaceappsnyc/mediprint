@@ -9,6 +9,12 @@ angular.module('myApp.astronauts', ['ngRoute'])
   });
 }])
 
-.controller('AstronautsCtrl', [function() {
+.controller('AstronautsCtrl', ['$scope', function($scope) {
+
+    $scope.astronauts = [
+        {name: "John Glenn"},
+        {name: "Neil Armstrong"},
+        {name:   "Mark Shuttleworth"}
+    ];
 
 }]);

@@ -9,6 +9,13 @@ angular.module('myApp.conditions', ['ngRoute'])
   });
 }])
 
-.controller('ConditionsCtrl', [function() {
+.controller('ConditionsCtrl', ['$scope', function($scope) {
+
+    $scope.conditions = [
+        {name: "Broken Arm"},
+        {name: "Broken Wrist"},
+        {name: "Tennis Elbow"}
+    ];
+
 
 }]);

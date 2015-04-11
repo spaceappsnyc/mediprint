@@ -9,6 +9,15 @@ angular.module('myApp.bodyparts', ['ngRoute'])
   });
 }])
 
-.controller('BodypartsCtrl', [function() {
+.controller('BodypartsCtrl', ['$scope', function($scope) {
+
+    $scope.bodyparts = [
+        {name: "Torso"},
+        {name: "Right Arm"},
+        {name: "Left Arm"},
+        {name: "Right Leg"},
+        {name: "Left Leg"}
+    ];
+
 
 }]);
