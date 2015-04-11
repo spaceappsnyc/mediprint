@@ -55,7 +55,8 @@ function init() {
     // model
 
     var loader = new THREE.OBJLoader( manager );
-    loader.load( 'models/male02.obj', function ( object ) {
+    //loader.load( 'models/male02.obj', function ( object ) {
+    loader.load( 'models/Male_full_body.obj', function ( object ) {
     //loader.load( 'models/man.obj', function ( object ) {
         object.traverse( function ( child ) {
             if ( child instanceof THREE.Mesh ) {
