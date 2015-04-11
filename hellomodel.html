@@ -1,40 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>three.js webgl - loaders - OBJ loader</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>My first Three.js app</title>
 <style>
-body {
-    font-family: Monospace;
-    background-color: #000;
-    color: #fff;
-    margin: 0px;
-    overflow: hidden;
-}
-#info {
-    color: #fff;
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    text-align: center;
-    z-index: 100;
-    display:block;
-}
-#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
+body { margin: 0; }
+canvas { width: 100%; height: 100% }
 </style>
 </head>
-
 <body>
-<div id="info">
-    <a href="http://threejs.org" target="_blank">three.js</a> - OBJLoader test
-</div>
-
-<script src="../build/three.min.js"></script>
+<script src="js/three.min.js"></script>
 <script src="js/loaders/OBJLoader.js"></script>
-
 <script>
-
 var container;
 
 var camera, scene, renderer;
@@ -44,13 +19,10 @@ var mouseX = 0, mouseY = 0;
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
-
 init();
 animate();
 
-
 function init() {
-
     container = document.createElement( 'div' );
     document.body.appendChild( container );
 
@@ -101,7 +73,8 @@ function init() {
     // model
 
     var loader = new THREE.OBJLoader( manager );
-    loader.load( 'obj/male02/male02.obj', function ( object ) {
+    //loader.load( 'models/man.obj', function ( object ) {
+    loader.load( 'models/male02.obj', function ( object ) {
 
             object.traverse( function ( child ) {
 
@@ -173,6 +146,5 @@ function render() {
 }
 
 </script>
-
 </body>
 </html>
