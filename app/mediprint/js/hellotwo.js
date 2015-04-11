@@ -49,12 +49,21 @@ function init() {
     // scene
     scene = new THREE.Scene();
 
+    // lighting
+
+    var ambient = new THREE.AmbientLight( 0x101030 );
+    scene.add( ambient );
+
+    var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+    directionalLight.position.set( 0, 0, 1 );
+    scene.add( directionalLight );
+
     // camera
     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 10000 );
     camera.position.y = 150;
     camera.position.z = 500;
 
-    // controlls
+    // controls
     controls = new THREE.TrackballControls( camera, renderer.domElement );
 
     // cube
