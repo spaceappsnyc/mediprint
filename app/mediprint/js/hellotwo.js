@@ -25,6 +25,15 @@ animate();
 // main canvas
 // -----------------------------------------------
 
+var onProgress = function ( xhr ) {
+    if ( xhr.lengthComputable ) {
+        var percentComplete = xhr.loaded / xhr.total * 100;
+        console.log( Math.round(percentComplete, 2) + '% downloaded' );
+    }
+};
+
+var onError = function ( xhr ) {
+};
 
 function init() {
 
@@ -54,6 +63,37 @@ function init() {
             new THREE.MeshBasicMaterial( { color : 0xff0000, wireframe: true }
                 ) );
     scene.add( cube );
+
+    // Texture
+    //
+    var texture = new THREE.Texture();
+    var textureLoader = new THREE.ImageLoader( manager );
+    textureLoader.load( 'textures/UV_Grid_Sm.jpg', function ( image ) {
+            texture.image = image;
+            texture.needsUpdate = true;
+            } );
+
+    var manager = new THREE.LoadingManager();
+    manager.onProgress = function ( item, loaded, total ) {
+        console.log( item, loaded, total );
+    };
+
+    // OBJ
+    var objLoader = new THREE.OBJLoader( manager );
+
+    //objLoader.load( 'models/male02.obj', function ( object ) {
+    objLoader.load( 'models/Male_full_body.obj', function ( object ) {
+    //objLoader.load( 'models/man.obj', function ( object ) {
+        object.traverse( function ( child ) {
+            if ( child instanceof THREE.Mesh ) {
+                child.material.map = texture;
+            }
+        } );
+
+        // object.position.y = - 80;
+        scene.add( object );
+    }, onProgress, onError );
+
 
     // axes
     axes = new THREE.AxisHelper( 100 );
