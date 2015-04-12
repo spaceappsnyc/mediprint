@@ -127,10 +127,23 @@ angular.module("tjsModelViewer", [])
                         object.traverse( function ( child ) {
                             if ( child instanceof THREE.Mesh ) {
                                 // child.material.map = texture;
-				child.material = wireframeMaterial;
-				//child.material = makeTriMaterial();
-                            }
-                        });
+				//child.material = wireframeMaterial;
+				//child.material = THREE.MeshDepthMaterial();
+
+				// child.material = new THREE.MeshPhongMaterial({
+				//     // light
+				//     specular: '#a9fcff',
+				//     // intermediate
+				//     color: '#00abb1',
+				//     // dark
+				//     emissive: '#006063',
+				//     shininess: 50
+				// });
+
+				child.material = new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.FlatShading });
+			//child.material = makeTriMaterial();
+			    }
+			});
 
                         // object.position.y = - 80;
                         scene.add( object );
