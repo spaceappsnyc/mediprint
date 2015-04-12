@@ -40,7 +40,6 @@ angular.module("tjsModelViewer", [])
                 };
 
                 function init() {
-
                     // dom
 
                     // renderer
