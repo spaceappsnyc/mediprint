@@ -1,11 +1,27 @@
 <div class="row">
-    <div ng-repeat="astronaut in astronauts" class="large-3 columns">
-	    <img src="{{ astronaut.img }}">
-            <div>
-                {{ astronaut.name }}
-            </div>
-            <a href="/app/#/astronauts/{{astronaut.id}}/bodyparts">
-            <span class="invislink"></span>
-        </a>
+    <div class="large-12 columns">
+	<p class="titlePrompt">
+	Select Injured Crewmember
+	</p>
+    </div>
+
+    <div class="large-2 columns">
+	<div>
+	    <img src="img/logo/logomark.png">
+	</div>
+    </div>
+
+    <div class="large-10 columns">
+	<ul class="small-block-grid-3">
+	    <li ng-repeat="astronaut in astronauts" class="large-9 columns">
+	    <img src="{{ astronaut.img }}" class="astronautPhoto">
+	    <div>
+		{{ astronaut.name }}
+	    </div>
+	    <a href="/app/#/astronauts/{{astronaut.id}}/bodyparts">
+		<span class="invislink"></span>
+	    </a>
+	    </li>
+	</ul>
     </div>
 </div>

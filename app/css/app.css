@@ -11,8 +11,17 @@ body{
    color: #494949;
  }
 
+.secondary {
+
+}
+
+.astronautPhoto {
+    width: 150px;
+    /*height: 150px;*/
+}
+
 .titlePrompt {
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: xx-large;
     text-align: center;
 }
