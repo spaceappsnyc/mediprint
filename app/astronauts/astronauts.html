@@ -1,8 +1,11 @@
-<p>This is the partial for astronauts.</p>
-
-<div ng-repeat="astronaut in astronauts">
-    <img src="http://placehold.it/150x150">
-    <div>
-    {{ astronaut.name }}
+<div class="row">
+    <div ng-repeat="astronaut in astronauts" class="large-3 columns">
+            <img src="http://placehold.it/150x150">
+            <div>
+                {{ astronaut.name }}
+            </div>
+        <a href="/app/#/bodyparts">
+            <span class="invislink"></span>
+        </a>
     </div>
 </div>

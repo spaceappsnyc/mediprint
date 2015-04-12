@@ -19,5 +19,4 @@ angular.module('myApp.bodyparts', ['ngRoute'])
         {name: "Left Leg"}
     ];
 
-
 }]);
