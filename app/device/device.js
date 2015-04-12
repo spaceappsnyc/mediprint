@@ -11,6 +11,10 @@ angular.module('myApp.device', ['ngRoute'])
 
 .controller('DeviceCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
 
+    $scope.astronautId = $routeParams.astronautId;
+    $scope.bodyPartId  = $routeParams.bodyPartId;
+    $scope.conditionId = $routeParams.conditionId;
+
     $scope.assimpModelUrl = "models/jeep1.ms3d.json";
 
     $scope.changeModel = function() {
@@ -21,9 +25,5 @@ angular.module('myApp.device', ['ngRoute'])
             $scope.assimpModelUrl = "models/interior.3ds.json";
         }
     };
-
-    $scope.astronautId = $routeParams.astronautId;
-    $scope.bodyPartId  = $routeParams.bodyPartId;
-    $scope.conditionId = $routeParams.conditionId;
 
 }]);

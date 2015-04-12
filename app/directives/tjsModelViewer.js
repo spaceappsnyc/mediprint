@@ -11,6 +11,8 @@ angular.module("tjsModelViewer", [])
                 var scene, camera, renderer;
                 var geometry, material, mesh;
 
+                console.log("assimpUrl: " + scope.assimpUrl);
+
                 init();
                 animate();
 
@@ -29,7 +31,6 @@ angular.module("tjsModelViewer", [])
                     renderer = new THREE.WebGLRenderer();
                     renderer.setSize( window.innerWidth, window.innerHeight );
 
-                    //document.body.appendChild( renderer.domElement );
                     elem[0].appendChild(renderer.domElement);
                 }
 
