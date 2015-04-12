@@ -25,7 +25,7 @@ config(['$routeProvider', function($routeProvider) {
         controller: 'ConditionsCtrl'
       }).
 
-      when('/astronauts/:astronautId/bodyparts/:bodypartId/conditions/:device', {
+      when('/astronauts/:astronautId/bodyparts/:bodypartId/conditions/:conditionId', {
         templateUrl: 'device/device.html',
         controller: 'DeviceCtrl'
       }).

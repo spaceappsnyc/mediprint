@@ -12,12 +12,12 @@ angular.module('myApp.conditions', ['ngRoute'])
 .controller('ConditionsCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
 
     $scope.astronautId = $routeParams.astronautId;
-    $scope.bodyPartId  = $routeParams.bodyPartId;
+    $scope.bodypartId  = $routeParams.bodypartId;
 
     $scope.conditions = [
-        {name: "Broken Arm"},
-        {name: "Broken Wrist"},
-        {name: "Tennis Elbow"}
+        {id:0, name: "Broken Arm"},
+        {id:1, name: "Broken Wrist"},
+        {id:2, name: "Tennis Elbow"}
     ];
 
 }]);

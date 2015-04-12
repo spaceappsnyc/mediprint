@@ -1,7 +1,10 @@
-conditions yo
-
 <div class="row">
-    <div ng-repeat="condition in conditions">
-        {{ condition.name }}
+    <div ng-repeat="condition in conditions" class="large-3 columns">
+        <img src="http://placehold.it/150x150">
+        <div>
+            {{ condition.name }}
+        </div>
+        <a href="/app/#/astronauts/{{astronautId}}/bodyparts/{{ bodypartId }}/conditions/{{ condition.id }}">
+        <span class="invislink"></span>
     </div>
 </div>

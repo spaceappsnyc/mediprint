@@ -9,9 +9,10 @@ angular.module('myApp.device', ['ngRoute'])
   });
 }])
 
-.controller('DeviceCtrl', [function() {
+.controller('DeviceCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
 
     $scope.astronautId = $routeParams.astronautId;
     $scope.bodyPartId  = $routeParams.bodyPartId;
+    $scope.conditionId = $routeParams.conditionId;
 
 }]);
