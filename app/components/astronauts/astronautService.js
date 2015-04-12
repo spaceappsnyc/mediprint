@@ -24,7 +24,7 @@ module.service('astronautService', function() {
 	    {id:4, name: "Douglas Wheelock", img: "img/astronauts/doug_wheelock.jpg"},
 	    //{id:5, name: "John Oquist",      img: "img/astronauts/john_oquist.jpg"},
 	    //{id:6, name: "David Kay",        img: "img/astronauts/david_kay.png"},
-	    {id:7, name: "John Doe",         img: "img/astronauts/red_shirt.png"},
+	    {id:7, name: "John Doe",         img: "img/astronauts/redshirt.jpg"},
     ];
 });
 
