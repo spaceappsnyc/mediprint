@@ -99,7 +99,7 @@ angular.module("tjsModelViewer", [])
                     // cube
                     cube = new THREE.Mesh(
                             new THREE.BoxGeometry( 200, 200, 200, 1, 1, 1 ),
-                            new THREE.MeshBasicMaterial( { color : 0xff0000, wireframe: true }
+                            new THREE.MeshBasicMaterial( { color : 0x00ff00, wireframe: true }
                                 ) );
                     scene.add( cube );
 
