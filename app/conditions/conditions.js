@@ -11,6 +11,9 @@ angular.module('myApp.conditions', ['ngRoute'])
 
 .controller('ConditionsCtrl', ['$scope', function($scope) {
 
+    $scope.astronautId = $routeParams.astronautId;
+    $scope.bodyPartId  = $routeParams.bodyPartId;
+
     $scope.conditions = [
         {name: "Broken Arm"},
         {name: "Broken Wrist"},

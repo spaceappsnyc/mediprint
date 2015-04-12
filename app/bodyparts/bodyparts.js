@@ -9,7 +9,9 @@ angular.module('myApp.bodyparts', ['ngRoute'])
   });
 }])
 
-.controller('BodypartsCtrl', ['$scope', function($scope) {
+.controller('BodypartsCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+
+    $scope.astronautId = $routeParams.astronautId;
 
     $scope.bodyparts = [
         {name: "Torso"},

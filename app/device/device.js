@@ -11,4 +11,7 @@ angular.module('myApp.device', ['ngRoute'])
 
 .controller('DeviceCtrl', [function() {
 
+    $scope.astronautId = $routeParams.astronautId;
+    $scope.bodyPartId  = $routeParams.bodyPartId;
+
 }]);

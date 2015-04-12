@@ -16,17 +16,16 @@ config(['$routeProvider', function($routeProvider) {
         templateUrl: 'astronauts/astronauts.html',
         controller: 'AstronautsCtrl'
       }).
-      when('/bodyparts', {
+      when('/astronauts/:astronautId/bodyparts', {
         templateUrl: 'bodyparts/bodyparts.html',
         controller: 'BodypartsCtrl'
       }).
-      when('/conditions', {
+      when('/astronauts/:astronautId/bodyparts/:bodypartId/conditions', {
         templateUrl: 'conditions/conditions.html',
         controller: 'ConditionsCtrl'
       }).
 
-
-      when('/device/:deviceId', {
+      when('/astronauts/:astronautId/bodyparts/:bodypartId/conditions/:device', {
         templateUrl: 'device/device.html',
         controller: 'DeviceCtrl'
       }).
