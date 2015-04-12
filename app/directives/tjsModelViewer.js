@@ -95,13 +95,8 @@ angular.module("tjsModelViewer", [])
                     // OBJ
                     var objLoader = new THREE.OBJLoader( manager );
 
-                    //objLoader.load( 'models/male02.obj', function ( object ) {
-                    //objLoader.load( 'models/astronauts/Male_full_body.obj', function ( object ) {
-
-                    //objLoader.load( 'models/devices/anklebrace.obj', function ( object ) {
-
-                    //objLoader.load( 'models/devices/brace_and_arm.obj', function ( object ) {
-                    objLoader.load( 'models/devices/brace_curved.obj', function ( object ) {
+                    //objLoader.load( 'models/devices/brace_curved.obj', function ( object ) {
+                    objLoader.load( 'models/devices/armcast.obj', function ( object ) {
                         object.userData = {kind: "device"};
 
                     //objLoader.load( 'models/man.obj', function ( object ) {
