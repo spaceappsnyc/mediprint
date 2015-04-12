@@ -1,6 +1,6 @@
 <div class="row">
     <div ng-repeat="astronaut in astronauts" class="large-3 columns">
-            <img src="http://placehold.it/150x150">
+	    <img src="{{ astronaut.img }}">
             <div>
                 {{ astronaut.name }}
             </div>

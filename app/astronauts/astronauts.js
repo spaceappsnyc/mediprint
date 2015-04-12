@@ -12,11 +12,12 @@ angular.module('myApp.astronauts', ['ngRoute'])
 .controller('AstronautsCtrl', ['$scope', function($scope) {
 
     $scope.astronauts = [
-        {id:0, name: "John Glenn"},
-        {id:1, name: "Neil Armstrong"},
-        {id:2, name: "Douglas Wheelock"},
-        {id:3, name: "Mark Shuttleworth"},
-        {id:4, name: "David Kay"}
+        {id:0, name: "John Glenn",         img: "img/astronauts/buzz_aldrin.jpg"},
+        {id:0, name: "Cady Coleman",       img: "img/astronauts/cady_coleman.jpg"},
+        {id:1, name: "Neil Armstrong",     img: "img/astronauts/neil_armstrong.jpg"},
+        {id:2, name: "Douglas Wheelock",   img: "img/astronauts/doug_wheelock.jpg"},
+        {id:3, name: "John Oquist",        img: "img/astronauts/john_oquist.jpg"},
+        {id:4, name: "David Kay",          img: "img/astronauts/david_kay.png"},
     ];
 
 }]);
