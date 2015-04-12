@@ -105,7 +105,6 @@ angular.module("tjsModelViewer", [])
 
 		    var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x00ff0000, wireframe: true } );
 
-
                     var texture = new THREE.Texture();
                     var textureLoader = new THREE.ImageLoader( manager );
                     textureLoader.load( 'textures/UV_Grid_Sm.jpg', function ( image ) {
@@ -125,13 +124,11 @@ angular.module("tjsModelViewer", [])
                     objLoader.load( 'models/devices/armcast.obj', function ( object ) {
                         object.userData = {kind: "device"};
 
-
-                    //objLoader.load( 'models/man.obj', function ( object ) {
                         object.traverse( function ( child ) {
                             if ( child instanceof THREE.Mesh ) {
                                 // child.material.map = texture;
-				//child.material = wireframeMaterial;
-				child.material = makeTriMaterial();
+				child.material = wireframeMaterial;
+				//child.material = makeTriMaterial();
                             }
                         });
 
