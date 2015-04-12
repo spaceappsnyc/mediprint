@@ -9,7 +9,7 @@ angular.module('myApp.conditions', ['ngRoute'])
   });
 }])
 
-.controller('ConditionsCtrl', ['$scope', function($scope) {
+.controller('ConditionsCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
 
     $scope.astronautId = $routeParams.astronautId;
     $scope.bodyPartId  = $routeParams.bodyPartId;
@@ -19,6 +19,5 @@ angular.module('myApp.conditions', ['ngRoute'])
         {name: "Broken Wrist"},
         {name: "Tennis Elbow"}
     ];
-
 
 }]);

@@ -1,15 +1,16 @@
-<p>This is the partial for bodyparts.</p>
 
+<div class="row">
+    <map name="bodymap" id="bodymap">
+        <area alt="leftarm" title="leftarm"   href="/app/#/astronauts/{{ astronautId }}/bodyparts/leftarm/conditions" shape="rect" coords="2,94,219,272" />
+        <area alt="rightarm" title="rightarm" href="/app/#/astronauts/{{ astronautId }}/bodyparts/rightarm/conditions" shape="rect" coords="333,95,540,285" />
+        <area alt="leftleg" title="leftleg"   href="/app/#/astronauts/{{ astronautId }}/bodyparts/leftleg/conditions" shape="rect" coords="162,285,262,576" />
+        <area alt="rightleg" title="rightleg" href="/app/#/astronauts/{{ astronautId }}/bodyparts/rightleg/conditions" shape="rect" coords="273,288,393,578" />
+        <area alt="head" title="head"         href="/app/#/astronauts/{{ astronautId }}/bodyparts/head/conditions" shape="rect" coords="229,6,324,279" />
+    </map>
 
-<map name="bodymap" id="bodymap">
-    <area alt="leftarm" title="leftarm"   href="/app/#/astronauts/{{ astronautId }}/bodyparts/leftarm/conditions" shape="rect" coords="2,94,219,272" />
-    <area alt="rightarm" title="rightarm" href="/app/#/astronauts/{{ astronautId }}/bodyparts/rightarm/conditions" shape="rect" coords="333,95,540,285" />
-    <area alt="leftleg" title="leftleg"   href="/app/#/astronauts/{{ astronautId }}/bodyparts/leftleg/conditions" shape="rect" coords="162,285,262,576" />
-    <area alt="rightleg" title="rightleg" href="/app/#/astronauts/{{ astronautId }}/bodyparts/rightleg/conditions" shape="rect" coords="273,288,393,578" />
-    <area alt="head" title="head"         href="/app/#/astronauts/{{ astronautId }}/bodyparts/head/conditions" shape="rect" coords="229,6,324,279" />
-</map>
+    <img src="img/body_select.jpg" usemap="#bodymap">
 
-<img src="img/body_select.jpg" usemap="#bodymap">
+</div>
 
 <!--background color-->
 <!--e8e8e8-->
