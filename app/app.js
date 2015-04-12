@@ -13,7 +13,6 @@ angular.module('myApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-
       when('/astronauts', {
         templateUrl: 'astronauts/astronauts.html',
         controller: 'AstronautsCtrl'

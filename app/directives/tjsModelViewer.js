@@ -39,6 +39,29 @@ angular.module("tjsModelViewer", [])
                 var onError = function ( xhr ) {
                 };
 
+		var makeTriMaterial = function() {
+		    var attributesTris = { center: { type: 'v3', boundTo: 'faceVertices', value: [] } };
+		    var valuesTris = attributesTris.center.value;
+
+		    setupAttributes( geometryTris, valuesTris );
+
+		    var materialTris = new THREE.ShaderMaterial( { uniforms: {}, attributes: attributesTris, vertexShader: vertexShader, fragmentShader: fragmentShader } );
+
+		    return materialTris;
+		};
+
+		var makeMixedMaterial = function() {
+		    var mixedGeometry = new THREE.SphereGeometry( size / 2, 32, 16 );
+
+		    var attributesMixed = { center: { type: 'v3', boundTo: 'faceVertices', value: [] } };
+		    var valuesMixed = attributesMixed.center.value;
+
+		    setupAttributes( mixedGeometry, valuesMixed );
+
+		    var materialMixed = new THREE.ShaderMaterial( { uniforms: {}, attributes: attributesMixed, vertexShader: vertexShader, fragmentShader: fragmentShader } );
+		    return materialMixed;
+		}
+
                 function init() {
                     // dom
 
@@ -79,7 +102,10 @@ angular.module("tjsModelViewer", [])
                     scene.add( cube );
 
                     // Texture
-                    //
+
+		    var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x00ff0000, wireframe: true } );
+
+
                     var texture = new THREE.Texture();
                     var textureLoader = new THREE.ImageLoader( manager );
                     textureLoader.load( 'textures/UV_Grid_Sm.jpg', function ( image ) {
@@ -99,12 +125,15 @@ angular.module("tjsModelViewer", [])
                     objLoader.load( 'models/devices/armcast.obj', function ( object ) {
                         object.userData = {kind: "device"};
 
+
                     //objLoader.load( 'models/man.obj', function ( object ) {
                         object.traverse( function ( child ) {
                             if ( child instanceof THREE.Mesh ) {
-                                child.material.map = texture;
+                                // child.material.map = texture;
+				//child.material = wireframeMaterial;
+				child.material = makeTriMaterial();
                             }
-                        } );
+                        });
 
                         // object.position.y = - 80;
                         scene.add( object );
