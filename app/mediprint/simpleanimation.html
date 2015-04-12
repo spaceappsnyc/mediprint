@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - collada - blender</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #000000;
+				margin: 0px;
+				overflow: hidden;
+			}
+
+			#info {
+				color: #fff;
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+
+			}
+
+			a { color: red }
+
+			#stats { position: absolute; top:0; left: 0 }
+			#stats #fps { background: transparent !important }
+			#stats #fps #fpsText { color: #aaa !important }
+			#stats #fps #fpsGraph { display: none }
+		</style>
+	</head>
+
+	<body>
+		<div id="info">
+			<a href="http://threejs.org" target="_blank">three.js</a> -
+			monster by <a href="http://www.3drt.com/downloads.htm" target="_blank">3drt</a>
+		</div>
+
+		<script src="../js/threejs/three.min.js"></script>
+		<script src="../js/threejs/loaders/ColladaLoader.js"></script>
+		<script src="../js/threejs/Detector.js"></script>
+		<script src="../js/threejs/stats.min.js"></script>
+
+		<script>
+		    scene = new THREE.Scene();
+
+		    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+		    camera.position.z = 1000;
+
+		    var loader = new THREE.JSONLoader();
+		    var animation;
+
+		    // load the model and create everything
+		    loader.load('../models/animation/brace_animation.json', function (geometry, materials) {
+		      var mesh, material;
+
+		      var phongMaterial = new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.FlatShading });
+
+		      // create a mesh
+		      mesh = new THREE.SkinnedMesh(
+			geometry,
+			//new THREE.MeshFaceMaterial(materials)
+			phongMaterial
+		      );
+
+		      // define materials collection
+		      // material = mesh.material.materials;
+
+		      // // enable skinning
+		      // for (var i = 0; i < materials.length; i++) {
+		      //   var mat = materials[i];
+
+		      //   mat.skinning = true;
+		      // }
+
+		      scene.add(mesh);
+
+		      // add animation data to the animation handler
+		      THREE.AnimationHandler.add(mesh.geometry.animation);
+
+		      // create animation
+		      animation = new THREE.Animation(
+			mesh,
+			'ArmatureAction',
+			THREE.AnimationHandler.CATMULLROM
+		      );
+
+		      // play the anim
+		      animation.play();
+
+		      render();
+		    });
+
+		    function render() {
+		      animation.update(.01);
+		      renderer.render(scene, camera);
+		      requestAnimationFrame(render);
+		    }
+
+		</script>
+	</body>
+</html>
+
