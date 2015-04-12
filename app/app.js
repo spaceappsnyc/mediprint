@@ -30,6 +30,10 @@ config(['$routeProvider', function($routeProvider) {
         templateUrl: 'device/device.html',
         controller: 'DeviceCtrl'
       }).
+      when('/print', {
+	  templateUrl: 'print/print.html',
+      controller: 'PrintCtrl'
+      }).
 
       otherwise({
         redirectTo: '/astronauts'

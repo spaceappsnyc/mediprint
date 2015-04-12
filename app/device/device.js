@@ -21,4 +21,8 @@ angular.module('myApp.device', ['ngRoute'])
 
     $scope.assimpModelUrl = device.model;
 
+    // $scope.printModel = function() {
+
+    // };
+
 }]);
