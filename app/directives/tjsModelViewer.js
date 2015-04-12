@@ -67,7 +67,9 @@ angular.module("tjsModelViewer", [])
 
                     // renderer
                     renderer = new THREE.WebGLRenderer();
-                    renderer.setClearColor( 0xffffff, 1 );
+
+                    renderer.setClearColor( 0x000000, 1 );
+                    //renderer.setClearColor( 0xffffff, 1 );
 
                     var container = elem[0];
                     //renderer.setSize( window.innerWidth, window.innerHeight );
@@ -121,7 +123,7 @@ angular.module("tjsModelViewer", [])
                     var objLoader = new THREE.OBJLoader( manager );
 
                     //objLoader.load( 'models/devices/brace_curved.obj', function ( object ) {
-                    objLoader.load( 'models/devices/armcast.obj', function ( object ) {
+                    objLoader.load( scope.assimpUrl, function ( object ) {
                         object.userData = {kind: "device"};
 
                         object.traverse( function ( child ) {
@@ -151,8 +153,8 @@ angular.module("tjsModelViewer", [])
 
 
                     // axes
-                    axes = new THREE.AxisHelper( 100 );
-                    scene.add( axes );
+                    //axes = new THREE.AxisHelper( 100 );
+                    //scene.add( axes );
 
                     // inset canvas
                     // -----------------------------------------------

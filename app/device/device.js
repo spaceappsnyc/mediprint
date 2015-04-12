@@ -17,6 +17,8 @@ angular.module('myApp.device', ['ngRoute'])
 
     var device = deviceService.devices[$scope.conditionId];
 
+    $scope.device = device;
+
     $scope.assimpModelUrl = device.model;
 
 }]);
