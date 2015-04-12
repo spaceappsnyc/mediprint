@@ -29,7 +29,8 @@ angular.module("tjsModelViewer", [])
                     renderer = new THREE.WebGLRenderer();
                     renderer.setSize( window.innerWidth, window.innerHeight );
 
-                    document.body.appendChild( renderer.domElement );
+                    //document.body.appendChild( renderer.domElement );
+                    elem[0].appendChild(renderer.domElement);
                 }
 
                 function animate() {
