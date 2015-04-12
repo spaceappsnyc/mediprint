@@ -17,7 +17,8 @@ angular.module('myApp.conditions', ['ngRoute'])
     $scope.conditions = [
         {id:0, name: "Broken Arm"},
         {id:1, name: "Broken Wrist"},
-        {id:2, name: "Tennis Elbow"}
+        {id:2, name: "Broken Finger"},
+        {id:3, name: "Tennis Elbow"}
     ];
 
 }]);
