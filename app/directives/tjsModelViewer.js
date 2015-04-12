@@ -8,49 +8,80 @@ angular.module("tjsModelViewer", [])
                 assimpUrl: "=assimpUrl"
             },
             link: function (scope, elem, attr) {
+                var camera;
+                var scene;
+                var renderer;
+                var previous;
 
                 // init scene
+                init();
+
+                // Load jeep model using the AssimpJSONLoader
+                var loader1 = new THREE.AssimpJSONLoader();
+
                 scope.$watch("assimpUrl", function(newValue, oldValue) {
-                    if (newValue != oldValue) {
-
-                    } else {
-
-                    }
+                    if (newValue != oldValue) loadModel(newValue);
                 });
 
-                var scene, camera, renderer;
-                var geometry, material, mesh;
+                function loadModel(modelUrl) {
+                    loader1.load(modelUrl, function (assimpjson) {
+                        assimpjson.scale.x = assimpjson.scale.y = assimpjson.scale.z = 0.2;
+                        assimpjson.updateMatrix();
+                        if (previous) scene.remove(previous);
+                        scene.add(assimpjson);
 
-                init();
+                        previous = assimpjson;
+                    });
+                }
+
+                loadModel(scope.assimpUrl);
                 animate();
 
                 function init() {
+                    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 2000);
+                    camera.position.set(2, 4, 5);
                     scene = new THREE.Scene();
+                    scene.fog = new THREE.FogExp2(0x000000, 0.035);
+                    // Lights
+                    scene.add(new THREE.AmbientLight(0xcccccc));
+                    var directionalLight = new THREE.DirectionalLight(/*Math.random() * 0xffffff*/0xeeeeee);
+                    directionalLight.position.x = Math.random() - 0.5;
+                    directionalLight.position.y = Math.random() - 0.5;
+                    directionalLight.position.z = Math.random() - 0.5;
+                    directionalLight.position.normalize();
+                    scene.add(directionalLight);
 
-                    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-                    camera.position.z = 1000;
-
-                    geometry = new THREE.BoxGeometry( 200, 200, 200 );
-                    material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-
-                    mesh = new THREE.Mesh( geometry, material );
-                    scene.add( mesh );
-
+                    // Renderer
                     renderer = new THREE.WebGLRenderer();
-                    renderer.setSize( window.innerWidth, window.innerHeight );
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    elem[0].appendChild(renderer.domElement);
 
-                    document.body.appendChild( renderer.domElement );
+                    // Events
+                    window.addEventListener('resize', onWindowResize, false);
                 }
 
+                function onWindowResize(event) {
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                }
+
+                var t = 0;
+
                 function animate() {
+                    requestAnimationFrame(animate);
+                    render();
+                }
 
-                    requestAnimationFrame( animate );
-
-                    mesh.rotation.x += 0.01;
-                    mesh.rotation.y += 0.02;
-
-                    renderer.render( scene, camera );
+                function render() {
+                    var timer = Date.now() * 0.0005;
+                    camera.position.x = Math.cos(timer) * 10;
+                    camera.position.y = 4;
+                    camera.position.z = Math.sin(timer) * 10;
+                    camera.lookAt(scene.position);
+                    renderer.render(scene, camera);
                 }
             }
         }
-    }]);
+    }
+]);
