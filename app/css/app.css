@@ -15,12 +15,25 @@ body{
 
 }
 
+#titleContainer {
+    /*background: #EEE;*/
+    position:relative;
+}
+    /*height:400px;*/
+    /*width:400px;*/
+
+
 .astronautPhoto {
     width: 150px;
     /*height: 150px;*/
 }
 
-.titlePrompt {
+#gonnaBeOnTheBottom {
+    /*position:absolute;*/
+    /*bottom:0;*/
+}
+
+#titlePrompt {
     /*font-weight: bold;*/
     font-size: xx-large;
     text-align: center;
