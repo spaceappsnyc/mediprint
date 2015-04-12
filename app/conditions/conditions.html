@@ -1,16 +1,50 @@
 <div class="row">
+    <div class="large-12 columns" id="titleContainer">
+	<div class="large-2 columns">
+	    <img src="img/logo/logomark.png">
+	</div>
+	<div class="large-10 columns" id="titleContainer">
+	    <div id="gonnaBeOnTheBottom">
+		<p id="titlePrompt">
+		    Select Condition
+		</p>
+	    </div>
+	</div>
+    </div>
 
 
-    <div class="large-10 columns">
-	<ul class="small-block-grid-3">
-	    <li ng-repeat="condition in conditions" class="large-9 columns">
-		<img src="http://placehold.it/150x150">
-		<div>
-		    {{ condition.name }}
-		</div>
-		<a href="/app/#/astronauts/{{astronautId}}/bodyparts/{{ bodypartId }}/conditions/{{ condition.id }}">
-		<span class="invislink"></span>
-	    </li>
-	</ul>
+    <div class="large-12 columns">
+	<div class="large-2 columns navigationHistory">
+	    <div class="navigationItem">
+		<img src="img/astronauts/john_glenn.jpg">
+		<p>
+		John Glenn
+		</p>
+	    </div>
+	    <div class="navigationItem">
+		<img src="img/bodyparts/left_arm_icon.png">
+		<p>
+		Left Arm
+		</p>
+	    </div>
+	    <div class="navigationItem invisible">
+		<img src="img/devices/arm_cast.jpg">
+		<p>
+		Broken Arm
+		</p>
+	    </div>
+	</div>
+	<div class="large-10 columns">
+	    <ul class="small-block-grid-3">
+		<li ng-repeat="condition in conditions" class="large-9 columns">
+		    <img src="http://placehold.it/150x150">
+		    <div>
+			{{ condition.name }}
+		    </div>
+		    <a href="/app/#/astronauts/{{astronautId}}/bodyparts/{{ bodypartId }}/conditions/{{ condition.id }}">
+		    <span class="invislink"></span>
+		</li>
+	    </ul>
+	</div>
     </div>
 </div>

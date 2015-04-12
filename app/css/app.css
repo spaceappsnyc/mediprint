@@ -20,6 +20,10 @@ body{
     margin-top: 20px !important;
 }
 
+.invisible {
+    visibility: hidden:
+}
+
 .navigationHistory {
     outline: 3px solid red;
     padding: 15px;
@@ -38,6 +42,14 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.printButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 400px;
 }
 
 #floatContainer {

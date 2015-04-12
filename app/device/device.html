@@ -1,14 +1,32 @@
-<div class="hero-unit">
+<div class="row">
+    <div class="large-12 columns" id="titleContainer">
+	<div class="large-2 columns">
+	    <img src="img/logo/logomark.png">
+	</div>
+	<div class="large-10 columns" id="titleContainer">
+	    <div id="gonnaBeOnTheBottom">
+		<p id="titlePrompt">
+		    Arm Cast
+		</p>
+	    </div>
+	</div>
+    </div>
 
-    <tjs-model-viewer assimp-url="assimpModelUrl">
+
+<div class="large-12 columns">
+    <div class="hero-unit">
+
+        <tjs-model-viewer assimp-url="assimpModelUrl">
 
         <div id="inset">
         </div>
         <div id="bot-right">
         </div>
 
-    </tjs-model-viewer>
+        </tjs-model-viewer>
 
-    <!--<button ng-click="changeModel()">change model</button>-->
-    <!--<input ng-model="assimpModelUrl"></input>-->
+    </div>
+    <div class="large-12 columns">
+        <button ng-click="printModel()" class="printButton">Print</button>
+    </div>
 </div>
