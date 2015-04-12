@@ -69,12 +69,10 @@ function init() {
     // cube
     cube = new THREE.Mesh(
             new THREE.BoxGeometry( 200, 200, 200, 1, 1, 1 ),
-            new THREE.MeshBasicMaterial( { color : 0xff0000, wireframe: true }
-                ) );
+            new THREE.MeshBasicMaterial( { color : 0xff0000, wireframe: true }) );
     scene.add( cube );
 
     // Texture
-    //
     var texture = new THREE.Texture();
     var textureLoader = new THREE.ImageLoader( manager );
     textureLoader.load( 'textures/UV_Grid_Sm.jpg', function ( image ) {
@@ -90,16 +88,13 @@ function init() {
     // OBJ
     var objLoader = new THREE.OBJLoader( manager );
 
-    //objLoader.load( 'models/male02.obj', function ( object ) {
     objLoader.load( 'models/astronauts/Male_full_body.obj', function ( object ) {
-    //objLoader.load( 'models/man.obj', function ( object ) {
         object.traverse( function ( child ) {
             if ( child instanceof THREE.Mesh ) {
                 child.material.map = texture;
             }
         } );
 
-        // object.position.y = - 80;
         scene.add( object );
     }, onProgress, onError );
 
