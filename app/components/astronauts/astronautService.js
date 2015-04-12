@@ -1,4 +1,4 @@
-var module = angular.module('myApp', []);
+var module = angular.module('myApp.services', []);
 
 module.factory('getAstronauts', function(){
 
@@ -16,4 +16,30 @@ module.factory('getAstronauts', function(){
     };
 
 
+});
+
+module.factory('notify', ['$window', function(win) {
+   var msgs = [];
+   return function(msg) {
+     msgs.push(msg);
+     if (msgs.length == 3) {
+       win.alert(msgs.join("\n"));
+       msgs = [];
+     }
+   };
+ }]);
+
+module.service('MathService', function() {
+    this.add = function(a, b) { return a + b };
+
+    this.subtract = function(a, b) { return a - b };
+
+    this.multiply = function(a, b) { return a * b };
+
+    this.divide = function(a, b) { return a / b };
+});
+
+module.service('CalculatorService', function(MathService){
+    this.square = function(a) { return MathService.multiply(a,a); };
+    this.cube = function(a) { return MathService.multiply(a, MathService.multiply(a,a)); };
 });

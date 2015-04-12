@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'tjsModelViewer',
   'ngRoute',
+  'myApp.services',
   'myApp.astronauts',
   'myApp.bodyparts',
   'myApp.conditions',
