@@ -162,6 +162,14 @@ angular.module("tjsModelViewer", [])
                     camera2.position.setLength( CAM_DISTANCE );
 
                     camera2.lookAt( scene2.position );
+
+                    var time = Date.now() * 0.0005;
+
+                    for ( var i = 0; i < scene.children.length; i ++ ) {
+                        var object = scene.children[ i ];
+                        if ( object instanceof THREE.Object3D ) object.rotation.y = time * ( i % 2 ? 1 : -1 );
+                    }
+
                     render();
 
                 }
