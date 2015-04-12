@@ -45,9 +45,11 @@ angular.module("tjsModelViewer", [])
                     // renderer
                     renderer = new THREE.WebGLRenderer();
                     renderer.setClearColor( 0xffffff, 1 );
-                    renderer.setSize( window.innerWidth, window.innerHeight );
-                    //container.appendChild( renderer.domElement );
-                    elem[0].appendChild(renderer.domElement);
+
+                    var container = elem[0];
+                    //renderer.setSize( window.innerWidth, window.innerHeight );
+                    renderer.setSize( 1100, 500);
+                    container.appendChild(renderer.domElement);
 
                     // scene
                     scene = new THREE.Scene();
@@ -125,21 +127,21 @@ angular.module("tjsModelViewer", [])
                     container2 = document.getElementById('inset');
 
                     // renderer
-                    renderer2 = new THREE.WebGLRenderer();
-                    renderer2.setClearColor( 0xf0f0f0, 1 );
-                    renderer2.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
-                    container2.appendChild( renderer2.domElement );
+                    //renderer2 = new THREE.WebGLRenderer();
+                    //renderer2.setClearColor( 0xf0f0f0, 1 );
+                    //renderer2.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+                    //container2.appendChild( renderer2.domElement );
 
-                    // scene
-                    scene2 = new THREE.Scene();
+                    //// scene
+                    //scene2 = new THREE.Scene();
 
-                    // camera
-                    camera2 = new THREE.PerspectiveCamera( 50, CANVAS_WIDTH / CANVAS_HEIGHT, 1, 1000 );
-                    camera2.up = camera.up; // important!
+                    //// camera
+                    //camera2 = new THREE.PerspectiveCamera( 50, CANVAS_WIDTH / CANVAS_HEIGHT, 1, 1000 );
+                    //camera2.up = camera.up; // important!
 
-                    // axes
-                    axes2 = new THREE.AxisHelper( 100 );
-                    scene2.add( axes2 );
+                    //// axes
+                    //axes2 = new THREE.AxisHelper( 100 );
+                    //scene2.add( axes2 );
                 }
 
                 // animate
@@ -148,7 +150,7 @@ angular.module("tjsModelViewer", [])
                 function render() {
 
                     renderer.render( scene, camera );
-                    renderer2.render( scene2, camera2 );
+                    //renderer2.render( scene2, camera2 );
 
                 }
 
@@ -158,11 +160,11 @@ angular.module("tjsModelViewer", [])
 
                     controls.update();
 
-                    camera2.position.copy( camera.position );
-                    camera2.position.sub( controls.target ); // added by @libe
-                    camera2.position.setLength( CAM_DISTANCE );
+                    //camera2.position.copy( camera.position );
+                    //camera2.position.sub( controls.target ); // added by @libe
+                    //camera2.position.setLength( CAM_DISTANCE );
 
-                    camera2.lookAt( scene2.position );
+                    //camera2.lookAt( scene2.position );
 
                     var time = Date.now() * 0.0005;
 
