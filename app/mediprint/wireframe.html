@@ -36,18 +36,9 @@
             }
 
             void main() {
-                //gl_FragColor.rgb = mix( vec3( 1.0 ), vec3( 0.2 ), edgeFactorTri() );
-                gl_FragColor.rgb = edgeFactorTri() * vec3(0.0, 1.0, 0.0);
+                //gl_FragColor.rgb = edgeFactorTri() * vec3(0.0, 1.0, 0.0);
+                gl_FragColor.rgb = mix( vec3( 1.0 ), vec3( 0.2 ), edgeFactorTri() );
                 gl_FragColor.a = 1.0;
-
-                //gl_FragColor.rgb = mix( vec3( 0.5 ), vec3( 0.1 ), edgeFactorTri() );
-                //gl_FragColor.rgb = (1, 0, 0, 0);
-
-                //gl_FragColor = vec4(1.0, 0.0, 1.0, 0.5);
-                //gl_FragColor = vec4(0.0, 0.5, 0.0, 0.5);
-
-                // console.log("RGB: " + gl_FragColor.rgb);
-
             }
         </script>
 
@@ -67,16 +58,18 @@
                 var size = 150;
 
                 var geometryLines = new THREE.BoxGeometry( size, size, size );
-                var geometryTris = new THREE.BoxGeometry( size, size, size );
+                var geometryTris  = new THREE.BoxGeometry( size, size, size );
 
                 // wireframe using gl.LINES
                 var materialLines = new THREE.MeshBasicMaterial( { wireframe: true } );
 
-                meshLines = new THREE.Mesh( geometryLines, materialLines );
+                meshLines = new THREE.Mesh( geometryLines, new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true } ));
+                //meshLines = new THREE.Mesh( geometryLines, materialLines );
                 meshLines.position.x = -150;
                 scene.add( meshLines );
 
-                var vertexShader = document.getElementById( 'vertexShader' ).textContent;
+
+                var vertexShader   = document.getElementById( 'vertexShader' ).textContent;
                 var fragmentShader = document.getElementById( 'fragmentShader' ).textContent;
 
                 // wireframe using gl.TRIANGLES (interpreted as triangles)
