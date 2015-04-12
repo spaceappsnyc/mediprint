@@ -9,21 +9,14 @@ angular.module('myApp.device', ['ngRoute'])
   });
 }])
 
-.controller('DeviceCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+.controller('DeviceCtrl', ['$scope', '$routeParams', 'deviceService', function($scope, $routeParams, deviceService) {
 
     $scope.astronautId = $routeParams.astronautId;
     $scope.bodyPartId  = $routeParams.bodyPartId;
     $scope.conditionId = $routeParams.conditionId;
 
-    $scope.assimpModelUrl = "models/jeep1.ms3d.json";
+    var device = deviceService.devices[$scope.conditionId];
 
-    $scope.changeModel = function() {
-        if ($scope.assimpModelUrl == "models/interior.3ds.json") {
-            $scope.assimpModelUrl = "models/jeep1.ms3d.json";
-        }
-        else {
-            $scope.assimpModelUrl = "models/interior.3ds.json";
-        }
-    };
+    $scope.assimpModelUrl = device.model;
 
 }]);
