@@ -65,14 +65,10 @@
 				dae = collada.scene;
 
 				dae.traverse( function ( child ) {
-
 					if ( child instanceof THREE.SkinnedMesh ) {
-
 						var animation = new THREE.Animation( child, child.geometry.animation );
 						animation.play();
-
 					}
-
 				} );
 
 				dae.scale.x = dae.scale.y = dae.scale.z = 0.002;
@@ -81,7 +77,6 @@
 
 				init();
 				animate();
-
 			} );
 
 			function init() {
@@ -141,14 +136,10 @@
 						scene.add( morph );
 
 						morphs.push( morph );
-
 					}
-
 				} );
 
-
 				// Add the COLLADA
-
 				scene.add( dae );
 
 				// Lights
@@ -174,10 +165,7 @@
 				// Events
 
 				window.addEventListener( 'resize', onWindowResize, false );
-
 			}
-
-			//
 
 			function onWindowResize( event ) {
 
