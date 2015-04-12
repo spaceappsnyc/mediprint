@@ -95,7 +95,7 @@ angular.module("tjsModelViewer", [])
                     var objLoader = new THREE.OBJLoader( manager );
 
                     //objLoader.load( 'models/male02.obj', function ( object ) {
-                    objLoader.load( 'models/Male_full_body.obj', function ( object ) {
+                    objLoader.load( 'models/astronauts/Male_full_body.obj', function ( object ) {
                     //objLoader.load( 'models/man.obj', function ( object ) {
                         object.traverse( function ( child ) {
                             if ( child instanceof THREE.Mesh ) {
