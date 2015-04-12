@@ -14,7 +14,9 @@ angular.module('myApp.astronauts', ['ngRoute'])
     $scope.astronauts = [
         {name: "John Glenn"},
         {name: "Neil Armstrong"},
-        {name:   "Mark Shuttleworth"}
+        {name: "Douglas Wheelock"},
+        {name: "Mark Shuttleworth"},
+        {name: "David Kay"}
     ];
 
 }]);
