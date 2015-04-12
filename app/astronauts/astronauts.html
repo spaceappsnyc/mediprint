@@ -12,22 +12,34 @@
 	</div>
     </div>
 
-    <div class="large-2 columns">
-	<div>
-	</div>
-    </div>
-
-    <div class="large-10 columns">
-	<ul class="small-block-grid-3">
-	    <li ng-repeat="astronaut in astronauts" class="large-9 columns">
-	    <img src="{{ astronaut.img }}" class="astronautPhoto">
+    <div class="large-12 columns">
+	<div class="large-2 columns">
 	    <div>
-		{{ astronaut.name }}
+		John Glenn
+		<img src="img/astronauts/john_glenn.jpg">
 	    </div>
-	    <a href="/app/#/astronauts/{{astronaut.id}}/bodyparts">
-		<span class="invislink"></span>
-	    </a>
-	    </li>
-	</ul>
+	    <div>
+		Left Arm
+		<img src="img/bodyparts/left_arm_icon.png">
+	    </div>
+	    <div>
+		Broken Arm
+		<img src="http://placehold.it/150x150">
+	    </div>
+	</div>
+
+	<div class="large-10 columns">
+	    <ul class="small-block-grid-3">
+		<li ng-repeat="astronaut in astronauts" class="large-9 columns">
+		<img src="{{ astronaut.img }}" class="astronautPhoto">
+		<div>
+		    {{ astronaut.name }}
+		</div>
+		<a href="/app/#/astronauts/{{astronaut.id}}/bodyparts">
+		    <span class="invislink"></span>
+		</a>
+		</li>
+	    </ul>
+	</div>
     </div>
 </div>
