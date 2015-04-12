@@ -15,10 +15,10 @@ angular.module('myApp.conditions', ['ngRoute'])
     $scope.bodypartId  = $routeParams.bodypartId;
 
     $scope.conditions = [
-        {id:0, name: "Broken Arm"},
-        {id:1, name: "Broken Wrist"},
-        {id:2, name: "Broken Finger"},
-        {id:3, name: "Tennis Elbow"}
+        {id:0, name: "Broken Arm",    img: "img/devices/arm_cast.jpg", model: "models/devices/arm_cast.obj"},
+        {id:1, name: "Broken Wrist",  img: "img/devices/arm_cast.jpg", model: "models/devices/arm_cast.obj"},
+        {id:2, name: "Broken Finger", img: "img/devices/arm_cast.jpg", model: "models/devices/arm_cast.obj"},
+        {id:3, name: "Tennis Elbow",  img: "img/devices/arm_cast.jpg", model: "models/devices/arm_cast.obj"},
     ];
 
 }]);
