@@ -16,7 +16,8 @@ body{
 }
 
 #titleContainer {
-    margin-bottom: 20px !important;
+    /*margin-bottom: 0px !important;*/
+    margin-top: 20px !important;
 }
 
 .navigationHistory {
@@ -62,7 +63,7 @@ body{
     font-size: xx-large;
     /*text-align: center;*/
     margin-left: 80px;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 .menu {
