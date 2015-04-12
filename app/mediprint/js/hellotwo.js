@@ -148,9 +148,9 @@ function animate() {
 
     controls.update();
 
-	camera2.position.copy( camera.position );
-	camera2.position.sub( controls.target ); // added by @libe
-	camera2.position.setLength( CAM_DISTANCE );
+    camera2.position.copy( camera.position );
+    camera2.position.sub( controls.target ); // added by @libe
+    camera2.position.setLength( CAM_DISTANCE );
 
     camera2.lookAt( scene2.position );
     render();
