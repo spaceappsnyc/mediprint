@@ -100,6 +100,7 @@ angular.module("tjsModelViewer", [])
 
                     //objLoader.load( 'models/devices/brace_and_arm.obj', function ( object ) {
                     objLoader.load( 'models/devices/brace_curved.obj', function ( object ) {
+                        object.userData = {kind: "device"};
 
                     //objLoader.load( 'models/man.obj', function ( object ) {
                         object.traverse( function ( child ) {
@@ -167,7 +168,9 @@ angular.module("tjsModelViewer", [])
 
                     for ( var i = 0; i < scene.children.length; i ++ ) {
                         var object = scene.children[ i ];
-                        if ( object instanceof THREE.Object3D ) object.rotation.y = time * ( i % 2 ? 1 : -1 );
+                        if ( object.userData.kind == "device") {
+                            object.rotation.y = time * ( i % 2 ? 1 : -1 );
+                        }
                     }
 
                     render();
